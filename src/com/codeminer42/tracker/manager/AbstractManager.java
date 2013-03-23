@@ -1,6 +1,9 @@
 package com.codeminer42.tracker.manager;
 
 import java.sql.SQLException;
+import java.util.List;
+
+import roboguice.util.Ln;
 
 import com.codeminer42.tracker.database.DatabaseHelper;
 import com.google.inject.Inject;
@@ -30,5 +33,49 @@ public abstract class AbstractManager<managerType> {
 		}
 		
 		return dao;
+	}
+	
+	public void create(final managerType managerType){
+		try {
+			getDao().create(managerType);
+		} catch (SQLException e) {
+			Ln.e(e, "Error to create workout");
+		}
+	}
+	
+	public void update(final managerType managerType){
+		try {
+			getDao().update(managerType);
+		} catch (SQLException e) {
+			Ln.e(e, "Error to update workout");
+		}
+	}
+	
+	public void createOrUpdate(final managerType managerType){
+		try {
+			getDao().createOrUpdate(managerType);
+		} catch (SQLException e) {
+			Ln.e(e, "Error to createOrUpdate workout");
+		}
+	}
+	
+	public managerType getById(final Integer id){
+		try {
+			return getDao().queryForId(id);
+		} catch (SQLException e) {
+			Ln.e(e, "Error to getById workout");
+		}
+		
+		return null;
+	}
+	
+	public List<managerType> getAll(){
+		try {
+			return getDao().queryForAll();
+		} catch (SQLException e) {
+			Ln.e(e, "Error to getAll workout");
+		}
+		
+		return null;
 	}
 }

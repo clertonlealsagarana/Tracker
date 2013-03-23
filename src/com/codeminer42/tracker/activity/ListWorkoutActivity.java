@@ -26,7 +26,7 @@ public class ListWorkoutActivity extends RoboActivity {
 		long millis = System.currentTimeMillis();
 		Workout simple = new Workout();
 		simple.setTimeSpent(millis);
-		workoutManager.insert(simple);
+		workoutManager.create(simple);
 	}
 
 	@Override

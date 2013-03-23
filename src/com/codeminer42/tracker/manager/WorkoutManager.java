@@ -1,9 +1,5 @@
 package com.codeminer42.tracker.manager;
 
-import java.sql.SQLException;
-
-import roboguice.util.Ln;
-
 import com.codeminer42.tracker.domain.Workout;
 import com.google.inject.Inject;
 
@@ -18,12 +14,4 @@ public class WorkoutManager extends AbstractManager<Workout>{
 		super(Workout.class);
 	}
 
-	public void insert(final Workout workout){
-		try {
-			getDao().create(workout);
-		} catch (SQLException e) {
-			Ln.e(e, "Error to insert data");
-		}
-	}
-	
 }
