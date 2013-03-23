@@ -8,6 +8,7 @@ import roboguice.util.Ln;
 import com.codeminer42.tracker.database.DatabaseHelper;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 /**
  * @author clertonleal@gmail.com
@@ -22,6 +23,8 @@ public abstract class AbstractManager<managerType> {
 	
 	private Dao<managerType, Integer> dao;
 	
+	private QueryBuilder<managerType, Integer> queryBuilder;
+	
 	
 	public AbstractManager(Class<managerType> clazz){
 		this.clazz = clazz;
@@ -33,6 +36,16 @@ public abstract class AbstractManager<managerType> {
 		}
 		
 		return dao;
+	}
+	
+	protected QueryBuilder<managerType, Integer> getQueryBuilder() throws SQLException{
+		if(queryBuilder == null){
+			queryBuilder = getDao().queryBuilder();
+		}
+		
+		queryBuilder.clear();
+		
+		return queryBuilder;
 	}
 	
 	public void create(final managerType managerType){

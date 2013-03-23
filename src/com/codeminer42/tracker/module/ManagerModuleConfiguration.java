@@ -1,17 +1,21 @@
 package com.codeminer42.tracker.module;
 
-import com.google.inject.AbstractModule;
+import com.codeminer42.tracker.database.DatabaseHelper;
+import com.codeminer42.tracker.manager.WorkoutManager;
+import com.google.inject.Binder;
+import com.google.inject.Module;
+import com.google.inject.Scopes;
 
 /**
  * @author clertonleal@gmail.com
  * @since 23/03/2013
  */
-public class ManagerModuleConfiguration extends AbstractModule {
+public class ManagerModuleConfiguration implements Module {
 
 	@Override
-	protected void configure() {
-		// TODO Auto-generated method stub
-
+	public void configure(Binder binder) {
+		binder.bind(WorkoutManager.class).in(Scopes.SINGLETON);
+		binder.bind(DatabaseHelper.class).in(Scopes.SINGLETON);
 	}
 
 }

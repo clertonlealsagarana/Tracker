@@ -13,5 +13,5 @@ public class WorkoutManager extends AbstractManager<Workout>{
 	public WorkoutManager() {
 		super(Workout.class);
 	}
-
+	
 }
