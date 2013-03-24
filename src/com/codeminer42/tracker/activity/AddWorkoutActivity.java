@@ -9,6 +9,7 @@ import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog.OnTimeSetListener;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +29,7 @@ import com.codeminer42.tracker.fragment.DatePickerFragment;
 import com.codeminer42.tracker.fragment.TimePickerFragment;
 import com.codeminer42.tracker.manager.WorkoutManager;
 import com.codeminer42.tracker.util.DateUtil;
+import com.codeminer42.tracker.util.ResultCode;
 import com.google.inject.Inject;
 
 /**
@@ -55,13 +57,15 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	@Inject
 	private WorkoutManager workoutManager;
 	
+	@Inject
+	private Resources resources;
+	
 	private final Workout workout = new Workout();
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		dateUtil.setPattern(getResources().getString(R.string.datePattern));
 		setupSpinerAdapter();
 		setListenners();
 	}
@@ -81,7 +85,7 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 		final List<String> workoutTypes = new ArrayList<String>();
 		
 		for (WorkoutType type : WorkoutType.values()) {
-			workoutTypes.add(getResources().getString(type.getResourceKey()));
+			workoutTypes.add(resources.getString(type.getResourceKey()));
 		}
 		
 		return workoutTypes;
@@ -118,9 +122,9 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	private final OnTimeSetListener onTimeSetListener = new OnTimeSetListener() {
 		
 		@Override
-		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			workoutTime.setText(hourOfDay + ":" + minute);
-			final long timeSpentInMinutes = ((hourOfDay * 60) + minute);
+		public void onTimeSet(TimePicker view, int hours, int minutes) {
+			workoutTime.setText(dateUtil.getResourceSpentTime(hours, minutes, resources.getString(R.string.time_spent)));
+			final int timeSpentInMinutes = ((hours * 60) + minutes);
 			workout.setTimeSpentInMinutes(timeSpentInMinutes);
 		}
 	};
@@ -142,17 +146,18 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 		@Override
 		public void onClick(View v) {
 			if( workout.getTimeSpentInMinutes() == null ){
-				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.time_needed), Toast.LENGTH_LONG).show();
+				Toast.makeText(AddWorkoutActivity.this, resources.getString(R.string.time_needed), Toast.LENGTH_LONG).show();
 				
 			} else if( workout.getType() == null ){
-				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.type_needed), Toast.LENGTH_LONG).show();
+				Toast.makeText(AddWorkoutActivity.this, resources.getString(R.string.type_needed), Toast.LENGTH_LONG).show();
 				
 			} else if( workout.getDate() == null ){
-				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.date_needed), Toast.LENGTH_LONG).show();
+				Toast.makeText(AddWorkoutActivity.this, resources.getString(R.string.date_needed), Toast.LENGTH_LONG).show();
 				
 			} else{
 				workoutManager.create(workout);
-				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.workout_saved), Toast.LENGTH_LONG).show();
+				Toast.makeText(AddWorkoutActivity.this, resources.getString(R.string.workout_saved), Toast.LENGTH_LONG).show();
+				setResult(ResultCode.WORKOUT_ADDED);
 				finish();
 				
 			}

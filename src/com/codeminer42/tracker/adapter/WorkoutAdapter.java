@@ -2,19 +2,18 @@ package com.codeminer42.tracker.adapter;
 
 import java.util.List;
 
-import com.codeminer42.tracker.R;
-import com.codeminer42.tracker.domain.Workout;
-import com.codeminer42.tracker.domain.WorkoutRow;
-import com.codeminer42.tracker.util.DateUtil;
-import com.google.inject.Inject;
-
-import android.app.Activity;
-import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.codeminer42.tracker.R;
+import com.codeminer42.tracker.domain.Workout;
+import com.codeminer42.tracker.domain.WorkoutRow;
+import com.codeminer42.tracker.util.DateUtil;
+import com.google.inject.Inject;
 
 /**
  * 
@@ -29,10 +28,10 @@ public class WorkoutAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	
 	@Inject
-	private Context context;
+	private DateUtil dateUtil;
 	
 	@Inject
-	private DateUtil dateUtil;
+	private Resources resources;
 	
 	@Inject
 	public WorkoutAdapter(){}
@@ -73,15 +72,10 @@ public class WorkoutAdapter extends BaseAdapter {
 	}
 
 	private void fillRow(final WorkoutRow row, final Workout workout) {
-		 row.getTimeSpent().setText(getSpentTime(workout.getTimeSpentInMinutes()));
-		 row.getWorkoutType().setText(((Activity)context).getResources().getString(workout.getType().getResourceKey()));
+		 row.getTimeSpent().setText(dateUtil.getResourceSpentTime(workout.getTimeSpentInMinutes(),
+				 													resources.getString(R.string.time_spent)));
+		 row.getWorkoutType().setText(resources.getString(workout.getType().getResourceKey()));
 		 row.getWorkoutDate().setText(dateUtil.getFormatedDate(workout.getDate()));
-	}
-
-	private String getSpentTime(final Long timeSpentInMinutes) {
-		final long hours = timeSpentInMinutes / 60;
-		final long minutes = timeSpentInMinutes % 60;
-		return (hours + ":" + minutes);
 	}
 
 	private WorkoutRow inflateRow(final View view) {

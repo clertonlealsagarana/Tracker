@@ -3,6 +3,8 @@ package com.codeminer42.tracker.util;
 /**
  * @author clertonleal@gmail.com
  * @since 23/03/2013
+ * 
+ * Here are all request codes used to startActivityForResult method.
  */
 public class RequestCode {
 

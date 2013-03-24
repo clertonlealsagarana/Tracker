@@ -12,5 +12,7 @@
     <string name="type_needed">Do you need insert a type.</string>
     <string name="time_needed">Do you need insert a time.</string>
     <string name="workout_saved">Workout saved.</string>
+    <string name="total_time_spent">You\'ve spent %h hours and %m minutes in workouts.</string>
+    <string name="time_spent">%h hours and %m minutes</string>
 
 </resources>

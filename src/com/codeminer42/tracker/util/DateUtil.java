@@ -33,4 +33,16 @@ public class DateUtil {
 		return calendar.getTime();
 	}
 	
+	public String getResourceSpentTime(final int timeSpentInMinutes, final String i18nResource) {
+		final int hours = timeSpentInMinutes / 60;
+		final int minutes = timeSpentInMinutes % 60;
+		return getResourceSpentTime(hours, minutes, i18nResource);
+	}
+	
+	public String getResourceSpentTime(final int hours, final int minutes, String i18nResource) {
+		i18nResource = i18nResource.replace("%h", Integer.toString(hours));
+		i18nResource = i18nResource.replace("%m", Integer.toString(minutes));
+		return i18nResource;
+	}
+	
 }
