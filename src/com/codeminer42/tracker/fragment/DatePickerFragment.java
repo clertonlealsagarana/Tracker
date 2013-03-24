@@ -6,7 +6,7 @@
  * Confidential Information and shall use it only in accordance with the
  * terms of the license agreement you entered into with Sagarana Tech.
  */
-package com.codeminer42.tracker.util;
+package com.codeminer42.tracker.fragment;
 
 import java.util.Calendar;
 
