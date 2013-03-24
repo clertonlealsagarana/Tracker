@@ -10,9 +10,8 @@ package com.codeminer42.tracker.util;
 
 import java.util.Calendar;
 
-import roboguice.util.Ln;
-
 import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -21,8 +20,10 @@ import android.support.v4.app.DialogFragment;
  * @author clertonleal@gmail.com
  * @since 23/03/2013
  */
-public class DatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+public class DatePickerFragment extends DialogFragment {
 
+	private OnDateSetListener onDateSetListener;
+	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		final Calendar c = Calendar.getInstance();
@@ -30,11 +31,11 @@ public class DatePicker extends DialogFragment implements DatePickerDialog.OnDat
 		final int month = c.get(Calendar.MONTH);
 		final int day = c.get(Calendar.DAY_OF_MONTH);
 
-		return new DatePickerDialog(getActivity(), this, year, month, day);
+		return new DatePickerDialog(getActivity(), onDateSetListener, year, month, day);
 	}
-
-	public void onDateSet(android.widget.DatePicker view, int year, int month, int day) {
-		Ln.w("");
+	
+	public void setOnDateSetListener(final OnDateSetListener onDateSetListener){
+		this.onDateSetListener = onDateSetListener;
 	}
 
 }
