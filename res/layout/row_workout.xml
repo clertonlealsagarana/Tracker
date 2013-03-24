@@ -8,22 +8,24 @@
         android:id="@+id/textRowTimeSpent"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:text="teste"
+        android:textSize="16sp"
+        android:gravity="center"
         android:layout_weight="1"/>
     
     <TextView 
         android:id="@+id/textRowType"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:text="teste"
+        android:gravity="center"
+        android:textSize="16sp"
         android:layout_weight="1"/>
     
     <TextView 
         android:id="@+id/textRowDate"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
-        android:text="teste"
+        android:gravity="center"
+        android:textSize="16sp"
         android:layout_weight="1"/>
-    
 
 </LinearLayout>

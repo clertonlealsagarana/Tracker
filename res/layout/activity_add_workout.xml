@@ -2,33 +2,74 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical" >
     
-    <Button 
-        android:id="@+id/buttonWorkoutTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="--:--"
-        android:onClick="showTimePickerDialog"/>
+    <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
     
-    <Spinner 
-        android:id="@+id/spinnerWorkoutType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/header_time"/>
+        
+        <Button 
+	        android:id="@+id/buttonWorkoutTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/insert_time"
+	        android:onClick="showTimePickerDialog"/>
+    </LinearLayout>
     
-    <Button 
-        android:id="@+id/buttonWorkoutDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="--/--/----"
-        android:onClick="showDatePickerDialog"/>
+    <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:orientation="vertical" >
+    
+        <TextView 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/header_type"/>
+        
+        <Spinner 
+	        android:id="@+id/spinnerWorkoutType"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"/>
+    </LinearLayout>
+    
+    <LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:orientation="vertical" >
+    
+        <TextView 
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/header_date"/>
+        
+        <Button 
+	        android:id="@+id/buttonWorkoutDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/insert_date"
+	        android:onClick="showDatePickerDialog"/>
+    </LinearLayout>
     
     <Button 
         android:id="@+id/buttonAddWorkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add"/>
-    
-    
+        android:layout_marginTop="10dp"
+        android:text="@string/save"/>
 
 </LinearLayout>

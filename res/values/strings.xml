@@ -14,5 +14,11 @@
     <string name="workout_saved">Workout saved.</string>
     <string name="total_time_spent">You\'ve spent %h hours and %m minutes in workouts.</string>
     <string name="time_spent">%h hours and %m minutes</string>
+    <string name="header_time">Time spent</string>
+    <string name="header_type">Workout type</string>
+    <string name="header_date">Date</string>
+    <string name="save">Save</string>
+    <string name="insert_time">Insert Time</string>
+    <string name="insert_date">Insert Date</string>
 
 </resources>

@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.codeminer42.tracker.R;
@@ -31,7 +31,7 @@ import com.google.inject.Inject;
 public class ListWorkoutActivity extends RoboListActivity {
 
 	@InjectView(R.id.buttonOpenWorkout)
-	private Button openWorkout;
+	private ImageButton openWorkout;
 	
 	@InjectView(R.id.textTotalTimeSpent)
 	private TextView totalTimeSpent;
@@ -63,7 +63,8 @@ public class ListWorkoutActivity extends RoboListActivity {
 	
 
 	private void setTotalTimeSpent() {
-		totalTimeSpent.setText(dateUtil.getResourceSpentTime(workoutManager.getTotalSpentTime(), resources.getString(R.string.total_time_spent)));
+		totalTimeSpent.setText(dateUtil.getResourceSpentTime(workoutManager.getTotalSpentTime(),
+																resources.getString(R.string.total_time_spent)));
 	}
 
 
