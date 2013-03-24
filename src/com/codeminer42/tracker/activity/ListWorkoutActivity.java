@@ -1,6 +1,6 @@
 package com.codeminer42.tracker.activity;
 
-import roboguice.activity.RoboActivity;
+import roboguice.activity.RoboListActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import com.google.inject.Inject;
  * @since 23/03/2013
  */
 @ContentView(R.layout.activity_list_workout)
-public class ListWorkoutActivity extends RoboActivity {
+public class ListWorkoutActivity extends RoboListActivity {
 
 	@InjectView(R.id.buttonOpenWorkout)
 	private Button openWorkout;

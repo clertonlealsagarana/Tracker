@@ -1,6 +1,7 @@
 package com.codeminer42.tracker.manager;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 import roboguice.util.Ln;
@@ -89,6 +90,6 @@ public abstract class AbstractManager<managerType> {
 			Ln.e(e, "Error to getAll workout");
 		}
 		
-		return null;
+		return Collections.emptyList();
 	}
 }

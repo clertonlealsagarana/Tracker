@@ -134,6 +134,7 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 
 		@Override
 		public void onNothingSelected(AdapterView<?> parent) {}
+		
 	};
 	
 	private final OnClickListener onAddWorkoutClickListenner = new OnClickListener() {

@@ -7,16 +7,28 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ListWorkoutActivity" >
-
-    <TextView
-        android:layout_width="wrap_content"
+    
+    <TextView 
+        android:id="@+id/textTotalTimeSpent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="teste"
+        android:gravity="center_horizontal"/>
+
+    <ListView 
+        android:layout_below="@+id/textTotalTimeSpent"
+        android:id="@android:id/list"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"></ListView>
     
     <Button 
         android:id="@+id/buttonOpenWorkout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:text="teste"/>
 
 </RelativeLayout>
