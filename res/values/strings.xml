@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Traker</string>
+    <string name="app_name">Tracker</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="datePattern">dd/MM/yyyy</string>
+    <string name="run">Run</string>
+    <string name="bike">Bike</string>
+    <string name="swimming">Swimming</string>
+    <string name="date_needed">Do you need insert a date.</string>
+    <string name="type_needed">Do you need insert a type.</string>
+    <string name="time_needed">Do you need insert a time.</string>
+    <string name="workout_saved">Workout saved.</string>
 
 </resources>

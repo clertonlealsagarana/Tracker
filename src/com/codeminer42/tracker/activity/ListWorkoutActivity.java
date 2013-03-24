@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.codeminer42.tracker.R;
 import com.codeminer42.tracker.manager.WorkoutManager;
 import com.codeminer42.tracker.util.RequestCode;
-import com.codeminer42.traker.R;
 import com.google.inject.Inject;
 
 /**

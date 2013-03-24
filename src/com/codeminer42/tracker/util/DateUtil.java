@@ -24,8 +24,13 @@ public class DateUtil {
 	}
 	
 	public String getFormatedDate(final int year, final int month, final int day){
+		return getFormatedDate(getDate(year, month, day));
+	}
+	
+	public Date getDate(final int year, final int month, final int day){
 		final Calendar calendar = Calendar.getInstance();
 		calendar.set(year, month, day);
-		return getFormatedDate(calendar.getTime());
+		return calendar.getTime();
 	}
+	
 }

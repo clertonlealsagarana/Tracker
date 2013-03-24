@@ -1,5 +1,9 @@
 package com.codeminer42.tracker.activity;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import roboguice.activity.RoboFragmentActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
@@ -7,15 +11,23 @@ import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.codeminer42.tracker.R;
+import com.codeminer42.tracker.domain.Workout;
+import com.codeminer42.tracker.domain.WorkoutType;
 import com.codeminer42.tracker.fragment.DatePickerFragment;
 import com.codeminer42.tracker.fragment.TimePickerFragment;
+import com.codeminer42.tracker.manager.WorkoutManager;
 import com.codeminer42.tracker.util.DateUtil;
-import com.codeminer42.traker.R;
 import com.google.inject.Inject;
 
 /**
@@ -40,16 +52,44 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	@Inject
 	private DateUtil dateUtil;
 	
-	/**
-	 * This method will be called when the date button is pressed. The bind are in xml layout
-	 */
+	@Inject
+	private WorkoutManager workoutManager;
+	
+	private final Workout workout = new Workout();
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		dateUtil.setPattern(getResources().getString(R.string.datePattern));
+		setupSpinerAdapter();
+		setListenners();
+	}
+
+	private void setListenners() {
+		workoutType.setOnItemSelectedListener(onItemSelectedListener);
+		addWorkout.setOnClickListener(onAddWorkoutClickListenner);
+	}
+
+	private void setupSpinerAdapter() {
+		final List<String> workoutTypes = getWorkoutTypes();
+		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, workoutTypes);
+		workoutType.setAdapter(adapter);
+	}
+
+	private List<String> getWorkoutTypes() {
+		final List<String> workoutTypes = new ArrayList<String>();
+		
+		for (WorkoutType type : WorkoutType.values()) {
+			workoutTypes.add(getResources().getString(type.getResourceKey()));
+		}
+		
+		return workoutTypes;
 	}
 	
+	/**
+	 * This method will be called when the date button is pressed. The bind are in xml layout
+	 */
 	public void showDatePickerDialog(final View view) {
 		final DatePickerFragment datePickerFragment = new DatePickerFragment();
 		datePickerFragment.setOnDateSetListener(onDateSetListener);
@@ -69,7 +109,9 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 		
 		@Override
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			workoutDate.setText(dateUtil.getFormatedDate(year, monthOfYear, dayOfMonth));
+			final Date date = dateUtil.getDate(year, monthOfYear, dayOfMonth);
+			workoutDate.setText(dateUtil.getFormatedDate(date));
+			workout.setDate(date);
 		}
 	};
 	
@@ -78,6 +120,42 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 		@Override
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 			workoutTime.setText(hourOfDay + ":" + minute);
+			final long timeSpentInMinutes = ((hourOfDay * 60) + minute);
+			workout.setTimeSpentInMinutes(timeSpentInMinutes);
 		}
 	};
+	
+	private final OnItemSelectedListener onItemSelectedListener = new OnItemSelectedListener() {
+
+		@Override
+		public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+			workout.setType(WorkoutType.values()[position]);
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> parent) {}
+	};
+	
+	private final OnClickListener onAddWorkoutClickListenner = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			if( workout.getTimeSpentInMinutes() == null ){
+				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.time_needed), Toast.LENGTH_LONG).show();
+				
+			} else if( workout.getType() == null ){
+				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.type_needed), Toast.LENGTH_LONG).show();
+				
+			} else if( workout.getDate() == null ){
+				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.date_needed), Toast.LENGTH_LONG).show();
+				
+			} else{
+				workoutManager.create(workout);
+				Toast.makeText(AddWorkoutActivity.this, getResources().getString(R.string.workout_saved), Toast.LENGTH_LONG).show();
+				finish();
+				
+			}
+		}
+	};
+	
 }

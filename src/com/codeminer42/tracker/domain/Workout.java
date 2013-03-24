@@ -24,7 +24,7 @@ public class Workout {
 	private Integer id;
 	
 	@Column
-	private Long timeSpent;
+	private Long timeSpentInMinutes;
 	
 	@Enumerated(EnumType.STRING)
 	private WorkoutType type;
@@ -33,12 +33,20 @@ public class Workout {
 	private Date date;
 
 	
-	public Long getTimeSpent() {
-		return timeSpent;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setTimeSpent(Long timeSpent) {
-		this.timeSpent = timeSpent;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Long getTimeSpentInMinutes() {
+		return timeSpentInMinutes;
+	}
+
+	public void setTimeSpentInMinutes(Long timeSpentInMinutes) {
+		this.timeSpentInMinutes = timeSpentInMinutes;
 	}
 
 	public WorkoutType getType() {
