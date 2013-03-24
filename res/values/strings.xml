@@ -20,5 +20,8 @@
     <string name="save">Save</string>
     <string name="insert_time">Insert Time</string>
     <string name="insert_date">Insert Date</string>
+    <string name="dialog_message">Do you want delete this workout?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

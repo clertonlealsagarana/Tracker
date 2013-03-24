@@ -72,7 +72,7 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 
 	private void setListenners() {
 		workoutType.setOnItemSelectedListener(onItemSelectedListener);
-		addWorkout.setOnClickListener(onAddWorkoutClickListenner);
+		addWorkout.setOnClickListener(onAddWorkoutClickListener);
 	}
 
 	private void setupSpinerAdapter() {
@@ -141,7 +141,7 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 		
 	};
 	
-	private final OnClickListener onAddWorkoutClickListenner = new OnClickListener() {
+	private final OnClickListener onAddWorkoutClickListener = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {

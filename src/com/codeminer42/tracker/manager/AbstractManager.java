@@ -73,6 +73,14 @@ public abstract class AbstractManager<managerType> {
 		}
 	}
 	
+	public void delete(final Integer id){
+		try {
+			getDao().deleteById(id);
+		} catch (SQLException e) {
+			Ln.e(e, "Error to delete workout");
+		}
+	}
+	
 	public managerType getById(final Integer id){
 		try {
 			return getDao().queryForId(id);

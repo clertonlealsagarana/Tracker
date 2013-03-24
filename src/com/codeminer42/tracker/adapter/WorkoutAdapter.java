@@ -20,7 +20,7 @@ import com.google.inject.Inject;
  * @author clertonleal@gmail.com
  * @since 24/03/2013
  */
-public class WorkoutAdapter extends BaseAdapter {
+public class WorkoutAdapter extends BaseAdapter{
 
 	private List<Workout> workouts;
 	
