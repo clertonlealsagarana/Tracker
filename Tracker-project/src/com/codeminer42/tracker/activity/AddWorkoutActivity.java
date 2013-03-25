@@ -62,6 +62,10 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	
 	private final Workout workout = new Workout();
 	
+	private DatePickerFragment datePickerFragment;
+	
+	private TimePickerFragment timePickerFragment;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +81,7 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 
 	private void setupSpinerAdapter() {
 		final List<String> workoutTypes = getWorkoutTypes();
-		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, workoutTypes);
+		final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, workoutTypes);
 		workoutType.setAdapter(adapter);
 	}
 
@@ -95,8 +99,11 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	 * This method will be called when the date button is pressed. The bind are in xml layout
 	 */
 	public void showDatePickerDialog(final View view) {
-		final DatePickerFragment datePickerFragment = new DatePickerFragment();
-		datePickerFragment.setOnDateSetListener(onDateSetListener);
+		if( datePickerFragment == null ) {
+			datePickerFragment = new DatePickerFragment();
+			datePickerFragment.setOnDateSetListener(onDateSetListener);
+		}
+		
 		datePickerFragment.show(getSupportFragmentManager(), "DatePicker");
 	}
 	
@@ -104,8 +111,11 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	 * This method will be called when the time button is pressed. The bind are in xml layout
 	 */
 	public void showTimePickerDialog(final View view){
-		final TimePickerFragment timePickerFragment = new TimePickerFragment();
-		timePickerFragment.setOnTimeSetListener(onTimeSetListener);
+		if( timePickerFragment == null ) {
+			timePickerFragment = new TimePickerFragment();
+			timePickerFragment.setOnTimeSetListener(onTimeSetListener);
+		}
+		
 		timePickerFragment.show(getSupportFragmentManager(), "TimePicker");
 	}
 	

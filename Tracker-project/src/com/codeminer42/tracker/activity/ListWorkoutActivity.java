@@ -1,5 +1,6 @@
 package com.codeminer42.tracker.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import roboguice.activity.RoboFragmentActivity;
@@ -55,7 +56,9 @@ public class ListWorkoutActivity extends RoboFragmentActivity {
 	@Inject
 	private Resources resources;
 	
-	private List<Workout> workouts;
+	private final List<Workout> workouts = new ArrayList<Workout>();
+	
+	private SimpleDialogFragment simpleDialog;
 	
 	private Integer workoutToDelete;
 	
@@ -64,11 +67,13 @@ public class ListWorkoutActivity extends RoboFragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setClickListenners();
-		workouts = workoutManager.getAll();
-		setTotalTimeSpent();
+		setUpListAdapter();
+		rebuildList();
+	}
+
+	private void setUpListAdapter() {
 		adapter.setListProvider(workouts);
 		listView.setAdapter(adapter);
-		listView.setOnItemClickListener(onItemClickListener);
 	}
 	
 	private void setTotalTimeSpent() {
@@ -77,12 +82,16 @@ public class ListWorkoutActivity extends RoboFragmentActivity {
 	}
 
 	private void setClickListenners(){
+		listView.setOnItemClickListener(onItemClickListener);
 		openWorkout.setOnClickListener(onClickOpenWorkoutListener);
 	}
 	
 	public void showDeleteDialog() {
-		final SimpleDialogFragment simpleDialog = new SimpleDialogFragment();
-		simpleDialog.setOnClickListener(onDeleteWorkoutListener);
+		if( simpleDialog == null ) {
+			simpleDialog = new SimpleDialogFragment();
+			simpleDialog.setOnClickListener(onDeleteWorkoutListener);
+		}
+		
 		simpleDialog.show(getSupportFragmentManager(), "SimpleDialog");
 	}
 
