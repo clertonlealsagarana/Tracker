@@ -29,13 +29,17 @@ public class AddWorkoutActivityTest extends ActivityInstrumentationTestCase2<Add
 		super("com.codeminer42.tracker.activity.AddWorkoutActivity", AddWorkoutActivity.class);
 	}
 	
+	/**
+	 * Is necessary to get a real context of a activity to manage the dependency injection.
+	 * TODO study Roboeletric ou Robotium to manage this context
+	 * This will be necessary to create classes test not dependent of a real activity. 
+	 */
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 		activityContext = getActivity();
 		workoutManager = new WorkoutManagerImpl();
 		
-		// Is necessary to get a real context of a activity to manage the dependency injection.
 		RoboGuice.injectMembers(activityContext, workoutManager);
 		setUpTest();
 	}
@@ -81,8 +85,10 @@ public class AddWorkoutActivityTest extends ActivityInstrumentationTestCase2<Add
 		
 		final List<Workout> workouts = workoutManager.getAll();
 		final Integer workoutId = workouts.get(0).getId();
+		
 		workoutManager.delete(workoutId);
 		assertEquals(2, workoutManager.countOf());
+		
 		assertNull(workoutManager.getById(workoutId));
 	}
 	
@@ -98,7 +104,9 @@ public class AddWorkoutActivityTest extends ActivityInstrumentationTestCase2<Add
 		workout.setTimeSpentInMinutes(400);
 		
 		workoutManager.create(workout);
+		
 		assertEquals(4, workoutManager.countOf());
+		
 		assertNotNull(workout.getId());
 	}
 
@@ -109,7 +117,9 @@ public class AddWorkoutActivityTest extends ActivityInstrumentationTestCase2<Add
 		setUpTest();
 		
 		workoutManager.deleteAll();
+		
 		assertEquals(0, workoutManager.countOf());
+		
 		assertEquals(0, workoutManager.getAll().size());
 	}
 
