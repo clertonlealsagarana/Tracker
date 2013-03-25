@@ -2,6 +2,7 @@ package com.codeminer42.tracker.module;
 
 import com.codeminer42.tracker.database.DatabaseHelper;
 import com.codeminer42.tracker.manager.WorkoutManager;
+import com.codeminer42.tracker.manager.impl.WorkoutManagerImpl;
 import com.codeminer42.tracker.util.DateUtil;
 import com.google.inject.Binder;
 import com.google.inject.Module;
@@ -15,7 +16,7 @@ public class ManagerModuleConfiguration implements Module {
 
 	@Override
 	public void configure(Binder binder) {
-		binder.bind(WorkoutManager.class).in(Scopes.SINGLETON);
+		binder.bind(WorkoutManager.class).to(WorkoutManagerImpl.class).in(Scopes.SINGLETON);
 		binder.bind(DatabaseHelper.class).in(Scopes.SINGLETON);
 		binder.bind(DateUtil.class).in(Scopes.SINGLETON);
 	}
