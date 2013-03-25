@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -72,19 +71,11 @@ public class ListWorkoutActivity extends RoboFragmentActivity {
 		listView.setOnItemClickListener(onItemClickListener);
 	}
 	
-
 	private void setTotalTimeSpent() {
 		totalTimeSpent.setText(dateUtil.getResourceSpentTime(workoutManager.getTotalSpentTime(),
 																resources.getString(R.string.total_time_spent)));
 	}
 
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.list_workout, menu);
-		return true;
-	}
-	
 	private void setClickListenners(){
 		openWorkout.setOnClickListener(onClickOpenWorkoutListener);
 	}
@@ -130,11 +121,11 @@ public class ListWorkoutActivity extends RoboFragmentActivity {
 		}
 	}
 
-
 	private void rebuildList() {
 		workouts.clear();
 		workouts.addAll(workoutManager.getAll());
 		adapter.notifyDataSetChanged();
 		setTotalTimeSpent();
 	};
+	
 }

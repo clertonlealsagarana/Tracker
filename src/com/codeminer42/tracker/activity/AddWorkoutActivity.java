@@ -112,8 +112,8 @@ public class AddWorkoutActivity extends RoboFragmentActivity {
 	private final OnDateSetListener onDateSetListener = new OnDateSetListener() {
 		
 		@Override
-		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			final Date date = dateUtil.getDate(year, monthOfYear, dayOfMonth);
+		public void onDateSet(DatePicker view, int year, int month, int day) {
+			final Date date = dateUtil.getDate(year, month, day);
 			workoutDate.setText(dateUtil.getFormatedDate(date));
 			workout.setDate(date);
 		}

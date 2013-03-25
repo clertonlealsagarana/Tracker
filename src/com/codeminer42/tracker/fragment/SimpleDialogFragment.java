@@ -13,7 +13,7 @@ import com.codeminer42.tracker.R;
  * @author clertonleal@gmail.com
  * @since 24/03/2013
  */
-public class SimpleDialogFragment  extends DialogFragment{
+public class SimpleDialogFragment extends DialogFragment {
 
 	private OnClickListener onClickListener;
 	

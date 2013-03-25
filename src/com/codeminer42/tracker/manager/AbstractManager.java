@@ -9,6 +9,7 @@ import roboguice.util.Ln;
 import com.codeminer42.tracker.database.DatabaseHelper;
 import com.google.inject.Inject;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.stmt.QueryBuilder;
 
 /**
@@ -25,6 +26,8 @@ public abstract class AbstractManager<managerType> {
 	private Dao<managerType, Integer> dao;
 	
 	private QueryBuilder<managerType, Integer> queryBuilder;
+	
+	private DeleteBuilder<managerType, Integer> deleteBuilder;
 	
 	
 	public AbstractManager(Class<managerType> clazz){
@@ -47,6 +50,16 @@ public abstract class AbstractManager<managerType> {
 		queryBuilder.clear();
 		
 		return queryBuilder;
+	}
+	
+	protected DeleteBuilder<managerType, Integer> getDeleteBuilder() throws SQLException{
+		if(deleteBuilder == null){
+			deleteBuilder = getDao().deleteBuilder();
+		}
+		
+		deleteBuilder.clear();
+		
+		return deleteBuilder;
 	}
 	
 	public void create(final managerType managerType){
@@ -95,9 +108,27 @@ public abstract class AbstractManager<managerType> {
 		try {
 			return getDao().queryForAll();
 		} catch (SQLException e) {
-			Ln.e(e, "Error to getAll workout");
+			Ln.e(e, "Error to getAll workouts");
 		}
 		
 		return Collections.emptyList();
+	}
+	
+	public void deleteAll(){
+		try {
+			getDeleteBuilder().delete();
+		} catch (SQLException e) {
+			Ln.e(e, "Error to delete all workouts");
+		}
+	}
+	
+	public int countOf(){
+		try {
+			return (int) dao.countOf();
+		} catch (SQLException e) {
+			Ln.e(e, "Error to count workouts");
+		}
+		
+		return 0;
 	}
 }
