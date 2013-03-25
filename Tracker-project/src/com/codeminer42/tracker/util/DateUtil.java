@@ -15,6 +15,7 @@ public class DateUtil {
 	@Inject
 	private SimpleDateFormat dateFormater;
 	
+	
 	public void setPattern(final String pattern){
 		dateFormater.applyPattern(pattern);
 	}

@@ -4,7 +4,7 @@ package com.codeminer42.tracker.util;
  * @author clertonleal@gmail.com
  * @since 24/03/2013
  * 
- * Here are all request codes used to startActivityForResult method.
+ * Here are all result codes used to startActivityForResult method.
  */
 public class ResultCode {
 	

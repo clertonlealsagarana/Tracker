@@ -6,6 +6,8 @@ import com.codeminer42.tracker.R;
 /**
  * @author clertonleal@gmail.com
  * @since 23/03/2013
+ * 
+ * The constructor of this Enum receives the key of i18n value of WorkoutType.
  */
 public enum WorkoutType {
 
@@ -13,6 +15,7 @@ public enum WorkoutType {
 	SWIMMING(R.string.swimming),
 	BIKE(R.string.bike)
 	;
+	
 	
 	private int resourceKey;
 	

@@ -19,8 +19,8 @@ import javax.persistence.SequenceGenerator;
 public class Workout {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "STOPTYPE_SEQ")
-	@SequenceGenerator(name = "STOPTYPE_SEQ", sequenceName = "STOPTYPE_SEQ")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "WORKOUT_SEQ")
+	@SequenceGenerator(name = "WORKOUT_SEQ", sequenceName = "WORKOUT_SEQ")
 	private Integer id;
 	
 	@Column

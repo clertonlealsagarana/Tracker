@@ -13,6 +13,7 @@ public class WorkoutRow {
 	private TextView workoutType;
 	
 	private TextView workoutDate;
+	
 
 	public TextView getTimeSpent() {
 		return timeSpent;
@@ -37,7 +38,5 @@ public class WorkoutRow {
 	public void setWorkoutDate(TextView workoutDate) {
 		this.workoutDate = workoutDate;
 	}
-	
-	
 	
 }

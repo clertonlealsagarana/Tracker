@@ -28,6 +28,7 @@ public class ApplicationContext extends Application{
 		RoboGuice.setBaseApplicationInjector(this, RoboGuice.DEFAULT_STAGE,
 				RoboGuice.newDefaultRoboModule(this), new ManagerModuleConfiguration());
 		
+		// Set the default date pattern from language file in dateUtil
 		dateUtil.setPattern(resources.getString(R.string.datePattern));
 	}
 

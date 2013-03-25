@@ -26,11 +26,12 @@ public class DatePickerFragment extends DialogFragment {
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		final Calendar c = Calendar.getInstance();
-		final int year = c.get(Calendar.YEAR);
-		final int month = c.get(Calendar.MONTH);
-		final int day = c.get(Calendar.DAY_OF_MONTH);
+		final Calendar calendar = Calendar.getInstance();
+		final int year = calendar.get(Calendar.YEAR);
+		final int month = calendar.get(Calendar.MONTH);
+		final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
+		// Set actual date by default
 		return new DatePickerDialog(getActivity(), onDateSetListener, year, month, day);
 	}
 	

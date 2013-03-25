@@ -71,7 +71,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			getDao().create(managerType);
 		} catch (SQLException e) {
-			Ln.e(e, "Error to create workout");
+			Ln.e(e, "Error to create " + clazz.getName() + " in database");
 		}
 	}
 	
@@ -80,7 +80,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			getDao().update(managerType);
 		} catch (SQLException e) {
-			Ln.e(e, "Error to update workout");
+			Ln.e(e, "Error to update " + clazz.getName() + " in database");
 		}
 	}
 	
@@ -89,7 +89,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			getDao().createOrUpdate(managerType);
 		} catch (SQLException e) {
-			Ln.e(e, "Error to createOrUpdate workout");
+			Ln.e(e, "Error to createOrUpdate " + clazz.getName() + " in database");
 		}
 	}
 	
@@ -98,7 +98,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			getDao().deleteById(id);
 		} catch (SQLException e) {
-			Ln.e(e, "Error to delete workout");
+			Ln.e(e, "Error to delete " + clazz.getName() + " in database");
 		}
 	}
 	
@@ -107,7 +107,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			return getDao().queryForId(id);
 		} catch (SQLException e) {
-			Ln.e(e, "Error to getById workout");
+			Ln.e(e, "Error to getById " + clazz.getName() + " in database");
 		}
 		
 		return null;
@@ -118,7 +118,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			return getDao().queryForAll();
 		} catch (SQLException e) {
-			Ln.e(e, "Error to getAll workouts");
+			Ln.e(e, "Error to getAll " + clazz.getName() + " in database");
 		}
 		
 		return Collections.emptyList();
@@ -129,7 +129,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			getDeleteBuilder().delete();
 		} catch (SQLException e) {
-			Ln.e(e, "Error to delete all workouts");
+			Ln.e(e, "Error to delete " + clazz.getName() + " in database");
 		}
 	}
 	
@@ -138,7 +138,7 @@ public abstract class AbstractManagerImpl<managerType> implements AbstractManage
 		try {
 			return (int) dao.countOf();
 		} catch (SQLException e) {
-			Ln.e(e, "Error to count workouts");
+			Ln.e(e, "Error to count " + clazz.getName() + " in database");
 		}
 		
 		return 0;

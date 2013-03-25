@@ -21,9 +21,10 @@ public class SimpleDialogFragment extends DialogFragment {
 	@Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(R.string.dialog_message)
+        builder.setMessage(R.string.delete_dialog_message)
                .setPositiveButton(R.string.delete, onClickListener)
                .setNegativeButton(R.string.cancel, null);
+        
         return builder.create();
     }
 	

@@ -11,6 +11,9 @@ import com.google.inject.Scopes;
 /**
  * @author clertonleal@gmail.com
  * @since 23/03/2013
+ * 
+ * Class responsible for doing the bind between concrete classes and interfaces.
+ * And management singletons to injection.
  */
 public class ManagerModuleConfiguration implements Module {
 
