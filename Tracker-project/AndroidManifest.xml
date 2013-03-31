@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="7"
-        android:targetSdkVersion="10" />
+        android:targetSdkVersion="16" />
 
     <application
         android:name="com.codeminer42.tracker.application.ApplicationContext"
