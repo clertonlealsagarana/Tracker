@@ -1,4 +1,4 @@
-package com.codeminer42.tracker.activity;
+package com.clerton.leal.tracker.activity;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,14 +22,14 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.codeminer42.tracker.R;
-import com.codeminer42.tracker.domain.Workout;
-import com.codeminer42.tracker.domain.WorkoutType;
-import com.codeminer42.tracker.fragment.DatePickerFragment;
-import com.codeminer42.tracker.fragment.TimePickerFragment;
-import com.codeminer42.tracker.manager.WorkoutManager;
-import com.codeminer42.tracker.util.DateUtil;
-import com.codeminer42.tracker.util.ResultCode;
+import com.clerton.leal.tracker.R;
+import com.clerton.leal.tracker.domain.Workout;
+import com.clerton.leal.tracker.domain.WorkoutType;
+import com.clerton.leal.tracker.fragment.DatePickerFragment;
+import com.clerton.leal.tracker.fragment.TimePickerFragment;
+import com.clerton.leal.tracker.manager.WorkoutManager;
+import com.clerton.leal.tracker.util.DateUtil;
+import com.clerton.leal.tracker.util.ResultCode;
 import com.google.inject.Inject;
 
 /**

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codeminer42.tracker"
+    package="com.clerton.leal.tracker"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -9,13 +9,13 @@
         android:targetSdkVersion="16" />
 
     <application
-        android:name="com.codeminer42.tracker.application.ApplicationContext"
+        android:name="com.clerton.leal.tracker.application.ApplicationContext"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.codeminer42.tracker.activity.ListWorkoutActivity"
+            android:name="com.clerton.leal.tracker.activity.ListWorkoutActivity"
             android:configChanges="orientation"
             android:label="@string/app_name" >
             <intent-filter>
@@ -26,7 +26,7 @@
         </activity>
         
         <activity
-            android:name="com.codeminer42.tracker.activity.AddWorkoutActivity"
+            android:name="com.clerton.leal.tracker.activity.AddWorkoutActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"/>
         
