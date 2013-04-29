@@ -10,6 +10,27 @@
     <description>A simple concept project of a tracker workout application for Android. This application use unit tests with Junit,
         			Maven build, injecting dependencies with RoboGuice and ORM persistence with ORMLite.</description>
         
+    <properties>
+	    <greenmile.depedence>4.2.1-SNAPSHOT</greenmile.depedence>
+	</properties>
+	
+    <repositories>
+		<repository>
+			<id>sagarana.internal</id>
+			<url>http://archiva.sagarana.com.br:8081/archiva/repository/internal/</url>
+		</repository>
+		
+		<repository>
+			<id>sagarana.nexus.snapshots</id>
+			<url>http://archiva.sagarana.com.br:8082/nexus/content/repositories/snapshots/</url>
+		</repository>
+		
+		<repository>
+			<id>sagarana.nexus.thirdparty</id>
+			<url>http://archiva.sagarana.com.br:8082/nexus/content/repositories/thirdparty/</url>
+		</repository>
+	</repositories>
+    
     <dependencies>
         <dependency>
 			<groupId>com.google.android</groupId>
@@ -41,6 +62,120 @@
 			<artifactId>javax.persistence</artifactId>
 			<version>2.0.0</version>
 		</dependency>
+		
+        <dependency>
+	       <groupId>com.greenmile</groupId>
+	       <artifactId>domain-android</artifactId>
+	       <version>${greenmile.depedence}</version>
+	    </dependency>
+	    
+	    <dependency>
+		  <groupId>com.greenmile</groupId>
+		  <artifactId>greenmile-exceptions</artifactId>
+		  <version>${greenmile.depedence}</version>
+		</dependency>
+	    
+	    <dependency>
+		   <groupId>com.monet</groupId>
+	       <artifactId>web-client-android</artifactId>
+	       <version>${greenmile.depedence}</version>
+	       
+	       <exclusions>
+			    <exclusion>
+			        <groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpcore</artifactId>
+			    </exclusion>
+			    
+			    <exclusion>
+			        <groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+			    </exclusion>
+			    
+			    <exclusion>
+			        <groupId>commons-codec</groupId>
+					<artifactId>commons-codec</artifactId>
+			    </exclusion>
+			    
+			    <exclusion>
+			        <groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+			    </exclusion>
+			</exclusions>
+	    </dependency>
+	    
+		<dependency>
+	        <groupId>net.deliveryintelligence</groupId>
+	        <artifactId>version-util</artifactId>
+	        <version>2.0.2</version>
+	    </dependency>
+		
+		<dependency>
+      	    <groupId>com.crittercism</groupId>
+      	    <artifactId>crittercism</artifactId>
+      	    <version>3.0.3</version>
+    	</dependency>
+    	
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.greenmile</groupId>
+			<artifactId>argus-android</artifactId>
+			<version>${greenmile.depedence}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.1</version>
+		</dependency>
+		
+		<dependency>
+	        <groupId>com.google.android</groupId>
+	      	<artifactId>google-analytics</artifactId>
+	      	<version>1.4.2</version>
+	    </dependency>
+
+		<!-- Por favor comente em desenvolvimento. -->
+		<dependency>
+		    <groupId>com.google.android</groupId>
+		    <artifactId>annotations</artifactId>
+		    <version>4.1.1.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.gcm</groupId>
+		    <artifactId>gcm-android</artifactId>
+		    <version>1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.github.rtyley</groupId>
+		    <artifactId>roboguice-sherlock</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclientandroid</artifactId>
+		    <version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+  			<groupId>com.google.zxing</groupId>
+  			<artifactId>qrcode-android</artifactId>
+  			<version>1.1</version>
+		</dependency>
+		
+		<dependency>
+  			<groupId>com.google.zxing</groupId>
+  			<artifactId>qrcode-core</artifactId>
+  			<version>1.1</version>
+		</dependency>
+		
     </dependencies>
 
     <build>

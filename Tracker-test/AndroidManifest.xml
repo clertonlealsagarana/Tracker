@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codeminer42.tracker.test"
+    package="com.clerton.leal.tracker.test"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -10,7 +10,7 @@
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.codeminer42.tracker" />
+        android:targetPackage="com.clerton.leal.tracker" />
 
     <application
         android:icon="@drawable/ic_launcher"
