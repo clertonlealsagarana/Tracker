@@ -1,7 +1,8 @@
-package com.clerton.leal.tracker.adapter;
+package com.clerton.leal.tracker.domain;
 
 import java.util.List;
 
+import android.R;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +10,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.clerton.leal.tracker.R;
-import com.clerton.leal.tracker.domain.Workout;
-import com.clerton.leal.tracker.domain.WorkoutRow;
 import com.clerton.leal.tracker.util.DateUtil;
 import com.google.inject.Inject;
 
 /**
- * 
+ *Eita, Clerton! 2 :) 
  * @author clertonleal@gmail.com
  * @since 24/03/2013
  */
