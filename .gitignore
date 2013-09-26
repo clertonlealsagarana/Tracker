@@ -49,3 +49,8 @@ local.properties
 
 #----- Maven -------
 target/
+
+# Intellij
+.idea/
+*.iml
+*.iws
