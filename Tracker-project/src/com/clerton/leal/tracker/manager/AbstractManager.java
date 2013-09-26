@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * 
- * @author clertonleal
+ * @author clertonlealasdf
  * @since 24/03/2013
  * 
  * This interface should be extended by all others managers interfaces.
@@ -13,17 +13,16 @@ import java.util.List;
 public interface AbstractManager<managerType> {
 	
 	void create(final managerType managerType);
-	
-	void update(final managerType managerType);
+asdf	void update(final managerType managerType);asdf
 	
 	void createOrUpdate(final managerType managerType);
 	
-	void delete(final Integer id);
+	void delete(final Integer id);sadfasdf
 	
 	managerType getById(final Integer id);
 	
 	List<managerType> getAll();
-	
+	asdfasdf
 	void deleteAll();
 	
 	int countOf();
