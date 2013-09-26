@@ -24,7 +24,7 @@ import com.clerton.leal.tracker.domain.WorkoutAdapter;
 import com.clerton.leal.tracker.fragment.SimpleDialogFragment;
 import com.clerton.leal.tracker.manager.WorkoutManager;
 import com.clerton.leal.tracker.util.DateUtil;
-import com.clerton.leal.tracker.util.RequestCode;
+import com.clerton.leal.tracker.util.RequestCode;adfasdfasdfasdfasdfsad
 import com.clerton.leal.tracker.util.ResultCode;
 import com.google.inject.Inject;
 
