@@ -1,6 +1,6 @@
 package com.clerton.leal.tracker.domain;
 
-import com.clerton.leal.tracker.R;
+import android.R;
 
 
 

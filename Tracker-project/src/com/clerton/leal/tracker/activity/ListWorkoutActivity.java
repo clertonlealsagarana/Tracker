@@ -19,8 +19,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.clerton.leal.tracker.R;
-import com.clerton.leal.tracker.adapter.WorkoutAdapter;
 import com.clerton.leal.tracker.domain.Workout;
+import com.clerton.leal.tracker.domain.WorkoutAdapter;
 import com.clerton.leal.tracker.fragment.SimpleDialogFragment;
 import com.clerton.leal.tracker.manager.WorkoutManager;
 import com.clerton.leal.tracker.util.DateUtil;
