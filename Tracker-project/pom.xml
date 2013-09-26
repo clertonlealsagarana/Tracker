@@ -9,7 +9,7 @@
     <packaging>apk</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>Tracker</name>
-
+    <description>coisas</description>
     <dependencies>
         <dependency>
 			<groupId>com.google.android</groupId>

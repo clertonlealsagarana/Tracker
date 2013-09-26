@@ -31,7 +31,6 @@ public class WorkoutAdapter extends BaseAdapter{
 	@Inject
 	private Resources resources;
 	
-	
 	@Inject
 	public WorkoutAdapter(){}
 	
