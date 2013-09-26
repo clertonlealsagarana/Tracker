@@ -41,5 +41,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase dataBase, ConnectionSource connectionSource, int oldVersion, int newVersion) {}
+
+	private String retornaEleMesmo (String ele) {
+		return value;
+	}
 	
 }
