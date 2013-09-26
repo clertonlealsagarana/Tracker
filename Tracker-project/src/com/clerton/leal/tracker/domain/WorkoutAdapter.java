@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.clerton.leal.tracker.util.DateUtil;
-import com.google.inject.Inject;
+import com.google.inject.Inject;asdfasdf
 
 /**
  *Eita, Clerton! 2 :) 
@@ -20,7 +20,7 @@ import com.google.inject.Inject;
  */
 public class WorkoutAdapter extends BaseAdapter{
 
-	private List<Workout> workouts;
+	private List<Workout> workouts;asdfasdf
 	
 	@Inject
 	private LayoutInflater inflater;
@@ -28,7 +28,7 @@ public class WorkoutAdapter extends BaseAdapter{
 	@Inject
 	private DateUtil dateUtil;
 	
-	@Inject
+	@Injectasdfasdf
 	private Resources resources;
 	
 	@Inject
@@ -56,7 +56,7 @@ public class WorkoutAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
-		WorkoutRow row = null;
+		WorkoutRow row = null;asdfasdfs
 		
 		if ( view == null ) {
 			view = inflateView();
@@ -75,7 +75,7 @@ public class WorkoutAdapter extends BaseAdapter{
 				 													resources.getString(R.string.time_spent)));
 		 row.getWorkoutType().setText(resources.getString(workout.getType().getResourceKey()));
 		 row.getWorkoutDate().setText(dateUtil.getFormatedDate(workout.getDate()));
-	}
+	}asdfasdf
 
 	private WorkoutRow inflateRow(final View view) {
 		final WorkoutRow row = new WorkoutRow();
