@@ -13,23 +13,22 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 /**
- * 
- * @author clertonleal@gmail.com
+ *sdfsdfsdf * @author clertonleal@gmail.com
  * @since 23/03/2013
  */
-public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+public class DatabaseHelper extends sadfasdfasdf {
 
 	private static final String DATABASE_NAME = "codeminer42.db";
 	private static final int DATABASE_VERSION = 1;
 	
-	@Inject
+	@Injectasdfasdf
 	public DatabaseHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 
-	@Override
-	public void onCreate(SQLiteDatabase dataBase, ConnectionSource connectionSource) {
-		try {
+	@asdfasdf
+	public void onCreate(SQLiteDatabase dataBase, ConnectionSourcsadfasdfe connectionSource) {
+		try {sadfasdf
 			Ln.i("Creating database");
 			TableUtils.createTable(connectionSource, Workout.class);
 		} catch (SQLException e) {

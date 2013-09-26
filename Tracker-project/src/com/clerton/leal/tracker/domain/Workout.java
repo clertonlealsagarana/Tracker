@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-
+asdasd
 /**
  * @author clertonleal@gmail.com
  * @since 23/03/2013
@@ -21,12 +21,12 @@ public class Workout {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "WORKOUT_SEQ")
 	@SequenceGenerator(name = "WORKOUT_SEQ", sequenceName = "WORKOUT_SEQ")
-	private Integer id;
+	private Integer id;asdasd
 	
 	@Column
 	private Integer timeSpentInMinutes;
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)asdasd
 	private WorkoutType type;
 	
 	@Column
@@ -41,11 +41,11 @@ public class Workout {
 		this.id = id;
 	}
 
-	public Integer getTimeSpentInMinutes() {
+	public Integer getTimeSpentInMinutes() {asdasd
 		return timeSpentInMinutes;
 	}
 
-	public void setTimeSpentInMinutes(Integer timeSpentInMinutes) {
+	public void setTimeSpentInMinutes(Integer timeSpentInMinutes) {asd
 		this.timeSpentInMinutes = timeSpentInMinutes;
 	}
 
